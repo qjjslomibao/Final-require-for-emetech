@@ -1,3 +1,12 @@
+#Names: Lomibao, Justin Joshua
+        Genabe, Richmond John
+        Jimenez, Maw
+        Carl Voltair
+        Lance Macamus
+#Course & Section: CPE019-CPE32S1
+#Instructor: Dr. Jonathan V. Taylar
+#Date Perform: December 10, 2023
+#Date Submitted: December 11, 2023
 # -*- coding: utf-8 -*-
 """app.ipynb
 
