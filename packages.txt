@@ -1,2 +1,3 @@
+pip install --upgrade streamlit
 pip install tensorflow
 libgl1
