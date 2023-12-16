@@ -2,3 +2,4 @@ pip install -r packages.txt
 libgl1
 pip install tensorflow==2.5.0
 pip list
+pip install --upgrade streamlit
