@@ -1,2 +1,4 @@
+source /home/adminuser/venv/bin/activate
 libgl1
 pip install tensorflow==2.5.0
+pip list
