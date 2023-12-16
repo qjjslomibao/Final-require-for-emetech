@@ -8,17 +8,19 @@
 # Instructor: Dr. Jonathan V. Taylar
 # Date Perform: December 10, 2023
 # Date Submitted: December 11, 2023
+import streamlit as st
 from PIL import Image
 import numpy as np
+import tensorflow as tf
 
 @st.cache(allow_output_mutation=True)
 def load_model():
     model = tf.keras.models.load_model('best_model.h5')
     return model
 
-model = load_model()
-
 st.title("Emtech2 - Emotion Prediction App")
+
+model = load_model()
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
@@ -35,3 +37,4 @@ if uploaded_file is not None:
     confidence_scalar = float(confidence)
 
     st.image(img, caption=f'Predicted Class: {predicted_class} (Confidence: {confidence_scalar:.2f})', use_column_width=True)
+
