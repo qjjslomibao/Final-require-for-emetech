@@ -10,30 +10,34 @@
 # Date Submitted: December 11, 2023
 import streamlit as st
 import tensorflow as tf
-from PIL import Image
-import numpy as np
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model('best_model.h5')
-    return model
+  model=tf.keras.models.load_model('
+best_model.h5')
+  return model
+model=load_model()
+st.write("""
+# Weather Classification"""
+)
+file=st.file_uploader("Upload a weather photo from your computer.",type=["jpg","png"])
 
-model = load_model()
-
-st.title("Emtech2 - Emotion Prediction App")
-
-uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-
-if uploaded_file is not None:
-    img = Image.open(uploaded_file)
-    img = img.resize((64, 64))
-    img_array = np.array(img)
-    img_array = img_array / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
-
-    prediction = model.predict(img_array)
-    predicted_class = "Happy" if prediction[0, 0] >= 0.5 else "Sad"
-    confidence = prediction[0, 0] if predicted_class == "Happy" else 1 - prediction[0, 0]
-    confidence_scalar = float(confidence)
-
-    st.image(img, caption=f'Predicted Class: {predicted_class} (Confidence: {confidence_scalar:.2f})', use_column_width=True)
+import cv2
+from PIL import Image,ImageOps
+import numpy as np
+def import_and_predict(image_data,model):
+    size=(60,60)
+    image=ImageOps.fit(image_data,size,Image.ANTIALIAS)
+    img=np.asarray(image)
+    img_reshape=img[np.newaxis,...]
+    prediction=model.predict(img_reshape)
+    return prediction
+if file is None:
+    st.text("Please upload an image related to weather.")
+else:
+    image=Image.open(file)
+    st.image(image,use_column_width=True)
+    prediction=import_and_predict(image,model)
+    class_names = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
+    string="OUTPUT : "+class_names[np.argmax(prediction)]
+    st.success(string)
