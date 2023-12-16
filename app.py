@@ -9,7 +9,9 @@
 # Date Perform: December 10, 2023
 # Date Submitted: December 11, 2023
 import streamlit as st
-import cv2
+from keras.models import load_model
+from keras.preprocessing import image
+from PIL import Image
 import numpy as np
 
 model_path = '/best_model.h5'
@@ -20,7 +22,6 @@ st.title("Emtech2 - Emotion Prediction App")
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
-
     img = Image.open(uploaded_file)
     img = img.resize((64, 64))
     img_array = image.img_to_array(img)
