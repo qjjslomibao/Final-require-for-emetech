@@ -7,10 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/19zuv1TfVkGvP14kNzN95snDHgx6VqZUW
 """
 
-!pip install Pillow
-!pip install tensorflow
-!pip install streamlit
-
 import streamlit as st
 from PIL import Image
 import numpy as np
