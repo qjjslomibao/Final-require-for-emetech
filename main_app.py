@@ -6,7 +6,7 @@ import tensorflow as tf
 # Add the following lines to explicitly set __file__
 if __name__ == '__main__':
     import __main__ as main
-    setattr(main, '__file__', 'app.py')  # Replace with your actual script name
+    setattr(main, '__file__', 'main_app.py')  # Replace with your actual script name
 
 # Define a dummy hash function for builtins.function
 def my_hash_func(func):
