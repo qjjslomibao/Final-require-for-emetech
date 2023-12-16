@@ -9,7 +9,6 @@
 # Date Perform: December 10, 2023
 # Date Submitted: December 11, 2023
 import streamlit as st
-import tensorflow as tf
 from PIL import Image
 import numpy as np
 
