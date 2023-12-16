@@ -1,3 +1,2 @@
 streamlit
 opencv-python-headless
-pip install tensorflow
