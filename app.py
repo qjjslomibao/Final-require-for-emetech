@@ -10,6 +10,8 @@
 # Date Submitted: December 11, 2023
 !pip install streamlit
 !pip install tensorflow
+pip install Pillow
+
 import streamlit as st
 from PIL import Image
 import numpy as np
