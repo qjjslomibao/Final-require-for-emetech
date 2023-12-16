@@ -8,7 +8,6 @@
 # Instructor: Dr. Jonathan V. Taylar
 # Date Perform: December 10, 2023
 # Date Submitted: December 11, 2023
-!pip install streamlit
 !pip install tensorflow
 pip install Pillow
 
