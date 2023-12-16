@@ -13,7 +13,16 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 
-@st.cache(allow_output_mutation=True)
+# Add the following lines to explicitly set __file__
+if __name__ == '__main__':
+    import __main__ as main
+    setattr(main, '__file__', 'app.py')  # Replace with your actual script name
+
+# Define a dummy hash function for builtins.function
+def my_hash_func(func):
+    return hash(func.__code__)
+
+@st.cache(allow_output_mutation=True, hash_funcs={type(lambda: None): my_hash_func})
 def load_model():
     model = tf.keras.models.load_model('best_model.h5')
     return model
