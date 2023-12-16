@@ -1,7 +1,3 @@
-pip install -r packages.txt
-streamlit==1.6.0
-torch==1.9.0
-torchvision==0.10.0
-Pillow==8.1.0
-numpy==1.20.3
-import torch
+streamlit
+tensorflow
+opencv-python-headless
