@@ -12,13 +12,6 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 
-# Your Streamlit app code here
-
-import streamlit as st
-from PIL import Image
-import numpy as np
-import tensorflow as tf
-
 # Add the following lines to explicitly set __file__
 if __name__ == '__main__':
     import __main__ as main
