@@ -2,5 +2,3 @@ pip install --upgrade streamlit
 streamlit
 tensorflow
 opencv-python-headless
-pip install tensorflow
-conda install spyder
