@@ -8,7 +8,7 @@
 # Instructor: Dr. Jonathan V. Taylar
 # Date Perform: December 10, 2023
 # Date Submitted: December 11, 2023
-pip install Pillow
+
 
 import streamlit as st
 from PIL import Image
