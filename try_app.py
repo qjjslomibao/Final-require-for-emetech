@@ -1,27 +1,26 @@
-from PIL import Image
+import streamlit as st
+import cv2
 import numpy as np
 
-@st.cache(allow_output_mutation=True)
-def load_model():
-    model = tf.keras.models.load_model('best_model.h5')
-    return model
+def process_image(uploaded_file):
+    if uploaded_file is not None:
+        # Read the image
+        image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
 
-model = load_model()
+        # Convert the image to grayscale
+        grayscale_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-st.title("Emtech2 - Emotion Prediction App")
+        # Display the original and grayscale images
+        st.image([image, grayscale_image], caption=['Original Image', 'Grayscale Image'], use_column_width=True)
 
-uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+def main():
+    st.title("Happy or Sad Detection")
+    st.write("The concept of the project is based on the midterm exam that identifies the weather. We applied a CNN model to train the model for detecting if the face is happy or sad. You can upload a photo reserved from the Google Drive link that we also submitted.")
 
-if uploaded_file is not None:
-    img = Image.open(uploaded_file)
-    img = img.resize((64, 64))
-    img_array = np.array(img)
-    img_array = img_array / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-    prediction = model.predict(img_array)
-    predicted_class = "Happy" if prediction[0, 0] >= 0.5 else "Sad"
-    confidence = prediction[0, 0] if predicted_class == "Happy" else 1 - prediction[0, 0]
-    confidence_scalar = float(confidence)
+    if uploaded_file:
+        process_image(uploaded_file)
 
-    st.image(img, caption=f'Pr
+if __name__ == "__main__":
+    main()
